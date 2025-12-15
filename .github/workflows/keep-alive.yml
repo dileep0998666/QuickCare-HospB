@@ -1,0 +1,16 @@
+name: Keep Render Awake
+
+on:
+  push:
+    branches: ["main"]   # TEMPORARY
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render App
+        run: |
+          curl -L https://quickcare-hospb.onrender.com/admin
